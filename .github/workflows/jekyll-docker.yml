@@ -1,0 +1,19 @@
+    name: Deploy to GitHub Pages
+
+    on:
+      push:
+        branches: [ main ]  # Or your main branch
+
+    jobs:
+      deploy:
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v3
+            with:
+              fetch-depth: 0  # Fetch all history for a full clone
+
+          - name: Deploy to GitHub Pages
+            uses: actions/deploy-pages@v1
+            with:
+              branch: gh-pages # Or your desired branch
+              path: . # Deploy the entire repository
